@@ -1,11 +1,6 @@
 const User = require("../models/Usermodel");
 
-let DonorProfile = null;
-try {
-  DonorProfile = require("../models/DonorProfile");
-} catch (err) {
-  DonorProfile = null;
-}
+const DonorProfile = require("../models/Donormodel");
 
 // @route GET /api/donors/me
 async function getMyProfile(req, res) {

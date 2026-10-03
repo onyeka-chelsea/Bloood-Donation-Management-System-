@@ -1,18 +1,10 @@
-const User = require("../models/User");
+const jwt = require("jsonwebtoken");
+const User = require("../models/Usermodel");
 
-let DonorProfile = null;
-try {
-  DonorProfile = require("../models/DonorProfile");
-} catch (err) {
-  DonorProfile = null;
-}
+const DonorProfile = require("../models/Donormodel");
 
-let generateToken = (userId) => `mock-token-${userId}`;
-try {
-  generateToken = require("../utils/generateToken");
-} catch (err) {
-  // Keep the app from crashing if the token helper has not been added yet.
-}
+const generateToken = (userId) =>
+  jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: "30d" });
 
 // @route POST /api/auth/register
 // body: { name, email, password, phone, role, organizationName, location, ... }
@@ -31,19 +23,31 @@ async function register(req, res) {
       return res.status(400).json({ message: "An account with this email already exists" });
     }
 
+    const allowedRoles = ["donor", "hospital", "bloodbank"];
+    const userRole = allowedRoles.includes(role) ? role : "donor";
+
+    if (userRole === "bloodbank" && !location) {
+      return res.status(400).json({ message: "Location is required for blood bank accounts" });
+    }
+
     const user = await User.create({
       name,
       email: normalizedEmail,
       password,
       phone,
-      role: ["donor", "hospital", "admin"].includes(role) ? role : "donor",
+      role: userRole,
       organizationName,
       location,
     });
 
+    if (userRole === "bloodbank") {
+      const BloodBank = require("../models/Bloodbank");
+      await BloodBank.create({ name, location, contactPhone: phone, managedBy: user._id });
+    }
+
     return res.status(201).json({
       user: user.toSafeObject ? user.toSafeObject() : user,
-      token: typeof generateToken === "function" ? generateToken(user._id) : `token-${user._id}`,
+      token: generateToken(user._id),
     });
   } catch (err) {
     console.error(err);
@@ -72,7 +76,7 @@ async function login(req, res) {
 
     return res.json({
       user: user.toSafeObject ? user.toSafeObject() : user,
-      token: typeof generateToken === "function" ? generateToken(user._id) : `token-${user._id}`,
+      token: generateToken(user._id),
     });
   } catch (err) {
     console.error(err);

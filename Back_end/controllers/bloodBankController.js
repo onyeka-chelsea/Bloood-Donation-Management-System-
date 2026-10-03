@@ -1,4 +1,4 @@
-const BloodBank = require("../models/BloodBank") ;
+const BloodBank = require("../models/Bloodbank") ;
 // @route GET /api/bloodbanks
 async function listBloodBanks(req, res) {
 const banks = await

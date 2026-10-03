@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { BLOOD_TYPES } = require("./DonorProfile");
+const { BLOOD_TYPES } = require("./Donormodel");
 
 const bloodRequestSchema = new mongoose.Schema(
   {

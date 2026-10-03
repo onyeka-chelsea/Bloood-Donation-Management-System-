@@ -1,0 +1,383 @@
+/* ==============================
+   BLOODLINK LOGIN PAGE
+   ============================== */
+
+.auth-page {
+  min-height: 100vh;
+  background: #f5f8fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 650px;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* ==============================
+   LEFT SIDE
+   ============================== */
+
+.auth-info {
+  background: linear-gradient(145deg, #b91c1c, #dc2626);
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.auth-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: white;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.auth-info-content {
+  max-width: 430px;
+}
+
+.auth-small-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+.auth-info h1 {
+  font-size: 46px;
+  line-height: 1.12;
+  margin: 18px 0;
+}
+
+.auth-info h1 span {
+  color: #dbeafe;
+}
+
+.auth-info-content > p {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.92;
+  margin-bottom: 35px;
+}
+
+.auth-feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.auth-feature strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.auth-feature p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.auth-footer-text {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* ==============================
+   RIGHT SIDE
+   ============================== */
+
+.login-card {
+  padding: 60px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobile-brand {
+  display: none;
+}
+
+.login-heading span {
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.login-heading h2 {
+  margin: 10px 0 8px;
+  font-size: 32px;
+  color: #172033;
+}
+
+.login-heading p {
+  margin: 0 0 35px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ==============================
+   FORM
+   ============================== */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-wrapper {
+  height: 52px;
+  border: 1px solid #d9e0e7;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  background: white;
+  transition: 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+.input-icon {
+  margin-right: 10px;
+  font-size: 17px;
+  color: #9ca3af;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #1f2937;
+  min-width: 0;
+}
+
+.input-wrapper input::placeholder {
+  color: #9ca3af;
+}
+
+.password-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-label label {
+  margin-bottom: 8px;
+}
+
+.password-label a {
+  color: #dc2626;
+  font-size: 12px;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.password-label a:hover {
+  text-decoration: underline;
+}
+
+.show-password {
+  border: none;
+  background: transparent;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ==============================
+   REMEMBER ME
+   ============================== */
+
+.remember-row {
+  margin: 5px 0 25px;
+}
+
+.remember-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.remember-row input {
+  accent-color: #dc2626;
+}
+
+/* ==============================
+   LOGIN BUTTON
+   ============================== */
+
+.login-button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  background: #dc2626;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: 0.2s ease;
+}
+
+.login-button:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.login-button span {
+  font-size: 20px;
+}
+
+/* ==============================
+   REGISTER
+   ============================== */
+
+.register-text {
+  text-align: center;
+  margin-top: 25px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.register-text a {
+  margin-left: 5px;
+  color: #dc2626;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   SECURITY
+   ============================== */
+
+.security-note {
+  margin-top: 28px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #6b7280;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 850px) {
+  .auth-page {
+    padding: 15px;
+  }
+
+  .auth-container {
+    grid-template-columns: 1fr;
+    max-width: 550px;
+  }
+
+  .auth-info {
+    display: none;
+  }
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 35px;
+    font-size: 23px;
+    font-weight: 700;
+    color: #dc2626;
+  }
+
+  .mobile-brand .auth-logo {
+    background: #dc2626;
+    color: white;
+  }
+
+  .login-card {
+    padding: 45px 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .auth-page {
+    padding: 0;
+  }
+
+  .auth-container {
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
+  .login-card {
+    padding: 35px 22px;
+  }
+
+  .login-heading h2 {
+    font-size: 27px;
+  }
+}

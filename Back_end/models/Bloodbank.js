@@ -1,5 +1,5 @@
 module.exports = require("./Bloodbank");const mongoose = require("mongoose");
-const { BLOOD_TYPES } = require("./DonorProfile");
+const { BLOOD_TYPES } = require("./Donormodel");
 
 const stockSchema = new mongoose.Schema(
   {
